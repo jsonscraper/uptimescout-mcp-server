@@ -6,7 +6,7 @@ Authentication: `Authorization: Bearer YOUR_EVELODE_LICENSE_KEY`
 | Method | Parameters | Behavior |
 |---|---|---|
 | services | q, region, category, limit, offset | Search catalog |
-| status | service, region | One cached status |
+| status | service, region | Current service status |
 | statuses | services (comma-separated), region | Batch statuses |
 | summary | services, region, category | Counts and freshness |
 | history | service, hours, region | Observed history, maximum 90 days depending on plan |
