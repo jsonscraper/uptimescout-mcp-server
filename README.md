@@ -16,6 +16,6 @@ Methods: services, status, statuses, summary, history, stats, incidents. All cal
 
 [OpenAPI](https://uptimescout.com/openapi.json) · [Website](https://uptimescout.com) · [Methods](docs/endpoints.md)
 
-Monthly quotas reset on the first calendar day (UTC), including annual subscriptions. Successful data calls count as one request. History accumulates from launch.
+Request usage resets on license renewal or plan change, never on a calendar boundary. Annual plans provide twelve monthly allowances as one pool for the full license term. Successful data calls count as one request. History accumulates from launch.
 
 MIT licensed.
