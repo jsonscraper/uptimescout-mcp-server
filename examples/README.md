@@ -17,12 +17,12 @@ Each example makes one data call. Set `UPTIMESCOUT_LICENSE_KEY` privately first.
 ## Inspect the hosted tool list without a data call
 
 ```sh
-curl --request POST 'https://mcp.uptimescout.com/mcp' \
+curl --request POST 'https://mcp.uptimescout.com' \
   --header 'Content-Type: application/json' \
   --header 'Accept: application/json, text/event-stream' \
   --data @examples/initialize.json
 
-curl --request POST 'https://mcp.uptimescout.com/mcp' \
+curl --request POST 'https://mcp.uptimescout.com' \
   --header 'Content-Type: application/json' \
   --header 'Accept: application/json, text/event-stream' \
   --data @examples/tools-list.json
@@ -33,7 +33,7 @@ These handshake/discovery calls do not request service data. Normal MCP clients 
 ## Execute one licensed data call
 
 ```sh
-curl --request POST 'https://mcp.uptimescout.com/mcp' \
+curl --request POST 'https://mcp.uptimescout.com' \
   --header 'Content-Type: application/json' \
   --header 'Accept: application/json, text/event-stream' \
   --header "Authorization: Bearer $UPTIMESCOUT_LICENSE_KEY" \

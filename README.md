@@ -32,7 +32,7 @@ PowerShell: `$env:UPTIMESCOUT_LICENSE_KEY = 'your-license-key'`.
 
 | Connection | Use it when | Setup |
 | --- | --- | --- |
-| Hosted Streamable HTTP | Your client supports a URL and Bearer authorization | `https://mcp.uptimescout.com/mcp` |
+| Hosted Streamable HTTP | Your client supports a URL and Bearer authorization | `https://mcp.uptimescout.com` |
 | Local stdio bridge | Your client launches a command | Install the Python bridge below |
 | Shared jsonscraper MCP | You want several independently licensed products in one assistant connection | [Shared connector](https://jsonscraper.com/mcp#connect) |
 
@@ -41,7 +41,7 @@ For the dedicated hosted endpoint, configure the header `Authorization: Bearer Y
 **Local stdio installation:**
 
 ```sh
-python -m pip install "git+https://github.com/jsonscraper/uptimescout-mcp-server.git@0.1.3"
+python -m pip install "git+https://github.com/jsonscraper/uptimescout-mcp-server.git@0.1.4"
 ```
 
 Then launch `uptimescout-mcp` from a client that inherits `UPTIMESCOUT_LICENSE_KEY`. Use the absolute executable path if your desktop client cannot find it.

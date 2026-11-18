@@ -4,7 +4,7 @@
 
 ## Dedicated hosted HTTP
 
-Use `https://mcp.uptimescout.com/mcp` with Streamable HTTP and the private header `Authorization: Bearer YOUR_EVELODE_LICENSE_KEY`. The dedicated endpoint uses a UptimeScout license. It does not combine licenses for other products or provide the shared connector's OAuth flow.
+Use `https://mcp.uptimescout.com` with Streamable HTTP and the private header `Authorization: Bearer YOUR_EVELODE_LICENSE_KEY`. The dedicated endpoint uses a UptimeScout license. It does not combine licenses for other products or provide the shared connector's OAuth flow.
 
 Configure URL and header using your client's supported connection settings. Environment substitution in JSON headers is client-specific; do not assume a `${VARIABLE}` string will be expanded.
 
@@ -13,7 +13,7 @@ Configure URL and header using your client's supported connection settings. Envi
 Install Python 3.10+ and the bridge:
 
 ```sh
-python -m pip install "git+https://github.com/jsonscraper/uptimescout-mcp-server.git@0.1.3"
+python -m pip install "git+https://github.com/jsonscraper/uptimescout-mcp-server.git@0.1.4"
 export UPTIMESCOUT_LICENSE_KEY='your-license-key'
 uptimescout-mcp
 ```

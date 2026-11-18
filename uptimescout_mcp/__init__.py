@@ -10,7 +10,7 @@ def main():
  if not key:sys.stderr.write("Set UPTIMESCOUT_LICENSE_KEY from Evelode.com.\n");return 1
  for line in sys.stdin:
   try:
-   message=json.loads(line);req=urllib.request.Request("https://mcp.uptimescout.com/mcp",data=json.dumps(message).encode(),headers={"Authorization":"Bearer "+key,"Content-Type":"application/json","Accept":"application/json, text/event-stream"})
+   message=json.loads(line);req=urllib.request.Request("https://mcp.uptimescout.com",data=json.dumps(message).encode(),headers={"Authorization":"Bearer "+key,"Content-Type":"application/json","Accept":"application/json, text/event-stream"})
    with _open(req,timeout=35) as response:
     raw=response.read(4*1024*1024)
    if raw:sys.stdout.write(json.dumps(json.loads(raw))+"\n");sys.stdout.flush()

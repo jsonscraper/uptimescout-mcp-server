@@ -15,7 +15,7 @@
 Requires Python 3.10+. The client package identifier is `uptimescout-mcp`. Installation from the GitHub release:
 
 ```sh
-python -m pip install "git+https://github.com/jsonscraper/uptimescout-mcp-server.git@0.1.3"
+python -m pip install "git+https://github.com/jsonscraper/uptimescout-mcp-server.git@0.1.4"
 ```
 
 ## First integration checklist

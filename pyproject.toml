@@ -5,7 +5,7 @@ build-backend="setuptools.build_meta"
 readme = "README.md"
 keywords = ["uptimescout", "availability", "status-api", "monitoring", "mcp"]
 name="uptimescout-mcp"
-version="0.1.3"
+version="0.1.4"
 description="UptimeScout MCP stdio bridge and client configuration"
 requires-python=">=3.10"
 license="MIT"

@@ -2,7 +2,7 @@
   "mcpServers": {
     "uptimescout": {
       "type": "http",
-      "url": "https://mcp.uptimescout.com/mcp",
+      "url": "https://mcp.uptimescout.com",
       "headers": {
         "Authorization": "Bearer ${UPTIMESCOUT_LICENSE_KEY}"
       }
