@@ -1,0 +1,10 @@
+{
+  "mcpServers": {
+    "uptimescout": {
+      "command": "/absolute/path/to/uptimescout-mcp",
+      "env": {
+        "UPTIMESCOUT_LICENSE_KEY": "YOUR_EVELODE_LICENSE_KEY"
+      }
+    }
+  }
+}

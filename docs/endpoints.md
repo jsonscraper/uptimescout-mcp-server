@@ -1,27 +1,42 @@
-# Methods
+# UptimeScout method reference
 
-Base: `https://api.uptimescout.com/v1/`
+[README](../README.md) · [Responses](responses.md) · [Examples](../examples/README.md)
+
+Base URL: `https://api.uptimescout.com/v1/`
 Authentication: `Authorization: Bearer YOUR_EVELODE_LICENSE_KEY`
 
-| Method | Parameters | Behavior |
-|---|---|---|
-| services | q, region, category, limit, offset | Search catalog |
-| status | service, region | Current service status |
-| statuses | services (comma-separated), region | Batch statuses |
-| summary | services, region, category | Counts and freshness |
-| history | service, hours, region | Observed history, maximum 90 days depending on plan |
-| stats | service, hours, region | Sample ratios, not uptime |
-| incidents | region, limit, offset | Fresh elevated signals |
+| Method | Required | Common optional parameters | Result |
+| --- | --- | --- | --- |
+| `services` | — | `q`, `category`, `region`, `lang`, `limit`, `offset` | Catalog and matching service signals |
+| `status` | `service` | `region`, `lang` | One service and its observation metadata |
+| `statuses` | `services` | `region`, `lang` | Several services in one data call |
+| `summary` | — | `services`, `category`, `region`, `lang` | Signal counts across matching services |
+| `history` | `service` | `hours`, `region`, `lang`, `limit`, `offset` | Saved observations and pagination |
+| `stats` | `service` | `hours`, `region`, `lang` | Statistics over collected samples |
+| `incidents` | — | `region`, `lang`, `limit`, `offset` | Services with fresh elevated signals |
 
-Limit is 1–200, offset is zero-based. HTTP 400: invalid input; 403: license or plan restriction; 404: unknown service; 429: quota/rate limit; 503: temporarily unavailable. Never log license keys.
+`service` is a catalog ID, not an arbitrary URL. `services` is a comma-separated ID list over HTTP and MCP. Python, Node.js and PHP batch helpers also accept arrays and serialize them for you. Batch size is limited by your plan (5–100).
 
-History supports `limit` (1–200) and `offset`. Follow `next_offset` until null to retrieve the whole requested window. `total` counts saved samples; gaps are unknown. Quotas count each page as one successful request.
+`limit` is 1–200. `offset` is zero-based. `hours` is 1–2160, additionally restricted by your plan's history depth. Use `next_offset`, not a guessed page count. Each page is a separate data call.
 
+## Regional observations and localized metadata
 
-### Regional observations and localized metadata
+Pass an ISO two-letter country code such as `GB`, `DE` or `JP`. The current set is returned in `available_regions`; do not hard-code a permanent list. Omit `region` only when a cross-region view is intended.
 
-Pass `region` as an ISO country code, for example `GB`, `DE` or `JP`. Responses expose `available_regions`; the selected country is independent of `lang`. Omit `region` only when an aggregate view across observed countries is intended. Unknown or stale observations must remain unknown.
+`lang` independently selects descriptions: `en`, `ar`, `cs`, `de`, `es`, `fi`, `fr`, `he`, `it`, `ja`, `ko`, `nl`, `no`, `pl`, `pt`, `ru`, `sv`, `tr`, `uk`, `zh`.
 
-Pass `lang` to select one of 20 description languages: `en`, `ar`, `cs`, `de`, `es`, `fi`, `fr`, `he`, `it`, `ja`, `ko`, `nl`, `no`, `pl`, `pt`, `ru`, `sv`, `tr`, `uk`, `zh`. Service objects include `logo_url`, `logo_kind` (`brand` or `monogram`), `description`, and `description_language`. Logo URLs are versioned HTTPS URLs on uptimescout.com and can be cached using their response headers.
+Service metadata includes localized `description`, actual `description_language`, versioned `logo_url` and `logo_kind` (`brand` or `monogram`). Logo URLs can be reused according to their HTTP response headers.
 
-Read `observed_at`, `age_seconds` and `stale` for the actual freshness of each regional observation. A region without observations is not a worldwide outage. Data collection runs independently of API or MCP requests.
+Read `observed_at`, `age_seconds` and `stale`. A country without a recent observation remains unknown. The same service can have different signals across regions.
+
+## cURL example
+
+```sh
+curl --get 'https://api.uptimescout.com/v1/status' \
+  --data-urlencode 'service=github' \
+  --data-urlencode 'region=GB' \
+  --data-urlencode 'lang=en' \
+  --header "Authorization: Bearer $UPTIMESCOUT_LICENSE_KEY"
+```
+
+[Authoritative OpenAPI specification](https://uptimescout.com/openapi.json)

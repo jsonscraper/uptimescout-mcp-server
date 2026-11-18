@@ -1,0 +1,14 @@
+{
+  "jsonrpc": "2.0",
+  "id": 3,
+  "method": "tools/call",
+  "params": {
+    "name": "uptimescout_incidents",
+    "arguments": {
+      "limit": 10,
+      "offset": 0,
+      "region": "GB",
+      "lang": "en"
+    }
+  }
+}

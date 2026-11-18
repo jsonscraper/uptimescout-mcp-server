@@ -1,0 +1,14 @@
+{
+  "jsonrpc": "2.0",
+  "id": 3,
+  "method": "tools/call",
+  "params": {
+    "name": "uptimescout_services",
+    "arguments": {
+      "q": "github",
+      "limit": 10,
+      "region": "GB",
+      "lang": "en"
+    }
+  }
+}
