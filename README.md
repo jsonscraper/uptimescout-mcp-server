@@ -10,7 +10,7 @@ python -m pip install "git+https://github.com/jsonscraper/uptimescout-mcp-server
 
 Run `UPTIMESCOUT_LICENSE_KEY=... uptimescout-mcp`, or connect your HTTP client to `https://mcp.uptimescout.com/mcp` with an Authorization Bearer header.
 
-Purchase and manage licenses at [Evelode.com](https://evelode.com/downloads/uptimescout/). The same license works with REST, MCP and every SDK.
+Get a license and compare plans on the [UptimeScout API product page](https://jsonscraper.com/services/uptimescout-api?utm_source=github&utm_medium=sdk&utm_campaign=uptimescout-mcp-server&utm_content=readme#pricing). Licenses are sold and managed by Evelode. The same license works with REST, MCP and every SDK.
 
 Methods: services, status, statuses, summary, history, stats, incidents. Statuses include observation time, region and freshness. Check `stale`, `observed_at` and region. Signals are not guaranteed confirmed outages; sample ratios are not measured uptime. Missing intervals are unknown.
 
@@ -23,3 +23,7 @@ MIT licensed.
 Request rates (60-second windows): Free 60/min, Starter 300/min, Builder 600/min, Pro 1,800/min, Scale 3,600/min. Annual plans use the same rates. Inspect `limits_info.rate_limit` and `limits_info.rate_limit_window_seconds`; respect HTTP 429 and `Retry-After`. Prices and license-period request allowances are unchanged.
 
 Regional selection, localized service descriptions and versioned logo URLs are supported by all seven methods. See [the endpoint reference](docs/endpoints.md#regional-observations-and-localized-metadata).
+
+## Integration and support
+
+[SDKs and request examples](https://jsonscraper.com/services/uptimescout-api?utm_source=github&utm_medium=sdk&utm_campaign=uptimescout-mcp-server&utm_content=sdk#sdk) · [MCP setup](https://jsonscraper.com/services/uptimescout-api?utm_source=github&utm_medium=sdk&utm_campaign=uptimescout-mcp-server&utm_content=mcp#connect) · [Support](https://jsonscraper.com/contacts?utm_source=github&utm_medium=sdk&utm_campaign=uptimescout-mcp-server&utm_content=support)
