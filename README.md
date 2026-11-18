@@ -172,3 +172,7 @@ The client source is [MIT-licensed](LICENSE); hosted API access uses a separate 
 When reporting a problem, include the client version, method, region and error status. Redact license keys and authorization headers.
 
 The SDK and bridge contain no installation or API-usage telemetry. Documentation links use campaign parameters for website referral analytics. Service names and logos identify monitored services and do not imply endorsement or partnership.
+
+## Remote MCP authorization
+
+Connect to `https://mcp.uptimescout.com` with OAuth. Sign in through your **Evelode account** or enter a **UptimeScout license key** on the authorization screen. Secure Bearer headers and local stdio remain available. [Connection options and revocation](docs/mcp.md) · [Setup guide](https://mcp.uptimescout.com/connect).
